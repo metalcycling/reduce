@@ -1,0 +1,22 @@
+package:
+  name: reduce
+  version: 3.24
+
+source:
+  path: ../
+
+build:
+  number: 1
+  binary_relocation: true
+  script:
+    - cmake -H. -Bbuild -G "${CMAKE_GENERATOR}" -DCMAKE_INSTALL_PREFIX="${PREFIX}"       # [not win]
+    - cmake -H. -Bbuild -G "%CMAKE_GENERATOR%" -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" # [win]
+    - cmake --build build --target install
+
+requirements:
+  build:
+    - cmake
+    - {{ compiler('cxx') }}
+
+about:
+  summary: Conda build system for 'reduce'
