@@ -1,6 +1,6 @@
 #!/bin/bash
 
-conda build --no-anaconda-upload .
-conda install --no-update-deps --use-local --yes reduce
+conda mambabuild --no-anaconda-upload .
+mamba install --no-update-deps --use-local --yes reduce
 reduce -Help
-conda clean --all --yes
+mamba clean --all --yes
